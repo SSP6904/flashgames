@@ -1,26 +1,15 @@
-<div id="gamehere"></div>
+<object>
+    <embed src="{{ include.swffile }}" style="width: 100%;" />
+</object>
 <br>
 <button class="btn btn-primary" type="button" onclick="downloadswf()">Download SWF</button>
 <script>
-    var filetoloadup = "{{ include.swffile }}"
     window.RufflePlayer = window.RufflePlayer || {};
-    window.addEventListener("load", (event) => {
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("gamehere");
-        container.appendChild(player);
-        player.load(filetoloadup).then(() => {
-            console.info("Loaded game: " + filetoloadup);
-            }).catch((e) => {
-            console.error(`Failed to load file: ${filetoloadup}\nReason: ${e}`);
-        });
-    });
     window.RufflePlayer.config = {
     "contextMenu": "on",
     "showSwfDownload": true,
     "allowFullscreen": true,
-    "letterbox": "on",
-    "allowScriptAccess": true
+    "letterbox": "on"
 };
 function downloadswf() {
     console.log('Downloaded your SWF file! Enjoy!')

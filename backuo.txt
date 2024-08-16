@@ -1,0 +1,11 @@
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("gamehere");
+        container.appendChild(player);
+        player.load(filetoloadup).then(() => {
+            console.info("Loaded game: " + filetoloadup);
+            }).catch((e) => {
+            console.error(`Failed to load file: ${filetoloadup}\nReason: ${e}`);
+        });
+    });
