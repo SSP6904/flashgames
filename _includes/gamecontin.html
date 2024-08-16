@@ -1,0 +1,28 @@
+<div id="gamehere"></div>
+<br>
+<button class="btn btn-primary" type="button" onclick="downloadswf()">Download SWF</button>
+<script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("gamehere");
+        container.appendChild(player);
+        player.load("{{ include.swffile }}").then(() => {
+            console.info("Loaded game: {{ include.swffile }}");
+            }).catch((e) => {
+            console.error(`Failed to load file: {{ include.swffile }}\nReason: ${e}`);
+        });
+    });
+    window.RufflePlayer.config = {
+    "contextMenu": "on",
+    "showSwfDownload": true,
+    "allowFullscreen": true,
+    "letterbox": "on",
+    "allowScriptAccess": true
+};
+function downloadswf() {
+    console.log('Downloaded your SWF file! Enjoy!')
+    location.href='{{ include.swffile }}';
+}
+</script>

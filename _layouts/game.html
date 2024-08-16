@@ -2,18 +2,12 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {%- include head.html -%}
 <body>
-<style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-</style>
-<div class="container-fluid mt-3" style="padding: 2em;">
-<div class="rounded border bg-transparent bg-body-secondary">
+<div class="container-fluid mt-3 p-3">
+<div class="rounded border border-primary p-3 bg-body-secondary">
 {{ content }}
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@ruffle-rs/ruffle@latest/ruffle.min.js"></script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.js"></script>
 </body>
 </html>
